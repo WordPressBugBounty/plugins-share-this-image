@@ -3,8 +3,8 @@ Contributors: Mihail Barinov
 Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
-Tested up to: 6.6
-Stable tag: 2.05
+Tested up to: 6.7
+Stable tag: 2.06
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,9 @@ Note: after each step you need to clear your browser cache and the cache of any 
 == Changelog ==
 
 [View full changelog](https://share-this-image.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=sti-repo)
+
+= 2.06 ( 28.10.2024 ) =
+* Update - Freemius sdk
 
 = 2.05 ( 14.10.2024 ) =
 * Update - Freemius sdk
