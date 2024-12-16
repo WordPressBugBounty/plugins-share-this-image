@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 2.06
+Stable tag: 2.07
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,9 @@ Note: after each step you need to clear your browser cache and the cache of any 
 == Changelog ==
 
 [View full changelog](https://share-this-image.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=sti-repo)
+
+= 2.07 ( 16.12.2024 ) =
+* Update - Freemius sdk
 
 = 2.06 ( 28.10.2024 ) =
 * Update - Freemius sdk
@@ -507,10 +510,3 @@ Note: after each step you need to clear your browser cache and the cache of any 
 * Update - Sharing data for WhatsApp
 * Update - Allow some html tags for custom content boxes
 * Dev - sti_element js filter
-
-= 1.37 =
-* Add - sti_buttons shortcode to display sharing buttons
-* Update - Re-calculate box position on scroll
-* Update - Change default image sizes options
-* Update - buttons positions options display
-* Dev - Add sti_data js hook
