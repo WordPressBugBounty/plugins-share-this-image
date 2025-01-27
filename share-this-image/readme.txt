@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 2.07
+Stable tag: 2.08
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,9 @@ Note: after each step you need to clear your browser cache and the cache of any 
 == Changelog ==
 
 [View full changelog](https://share-this-image.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=sti-repo)
+
+= 2.08 ( 27.01.2025 ) =
+* Update - Freemius sdk
 
 = 2.07 ( 16.12.2024 ) =
 * Update - Freemius sdk
@@ -504,9 +507,3 @@ Note: after each step you need to clear your browser cache and the cache of any 
 * Add - Support for WP Modula plugin
 * Update - Settings page view
 * Dev - Add stiInit js event
-
-= 1.38 =
-* Add - Support for nivo lightbox, simple lightbox plugin
-* Update - Sharing data for WhatsApp
-* Update - Allow some html tags for custom content boxes
-* Dev - sti_element js filter
