@@ -3,7 +3,7 @@ Contributors: Mihail Barinov
 Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: 2.08
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -218,6 +218,10 @@ Note: after each step you need to clear your browser cache and the cache of any 
 * Make sure that your website is open for indexing: open **Settings** -> **Reading** page and find **Search engine visibility** option.
 
 * Use tools like [Facebook debugger](https://developers.facebook.com/tools/debug/) or [Twitter card validator](https://cards-dev.twitter.com/validator) to check what actual sharing data social networks sees. This information can help you figure out what goes wrong.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/share-this-image)
 
 == Screenshots ==
 
