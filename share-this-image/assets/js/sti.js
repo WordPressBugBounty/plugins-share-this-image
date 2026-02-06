@@ -49,6 +49,7 @@ StiHooks.filters = StiHooks.filters || {};
 	
 		var opts = $.extend({
 			ajaxurl: sti_vars.ajaxurl,
+			nonce: sti_vars.nonce,
 			homeurl: sti_vars.homeurl,
 			selector: sti_vars.selector,
 			title: sti_vars.title,
@@ -693,7 +694,8 @@ StiHooks.filters = StiHooks.filters || {};
 					data: {
 						action: 'sti_shortLinks',
 						hash : hash,
-						link: link
+						link: link,
+						nonce: opts.nonce
 					},
 					success: function( response ) {
 					},

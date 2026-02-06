@@ -217,7 +217,7 @@ if ( ! class_exists( 'STI_Admin_Options' ) ) :
                         'mobile'  => 'true'
                     ),
                     "twitter" => array(
-                        'name'    => __( "Twitter", "share-this-image" ),
+                        'name'    => __( "X", "share-this-image" ),
                         'desktop' => 'true',
                         'mobile'  => 'true'
                     ),
@@ -346,23 +346,11 @@ if ( ! class_exists( 'STI_Admin_Options' ) ) :
             );
 
             $options['general'][] = array(
-                "name"  => __( "Twitter via", "share-this-image" ),
-                "desc"  => __( "Set twitters 'via' property.", "share-this-image" ),
+                "name"  => __( "X via", "share-this-image" ),
+                "desc"  => __( "Set X 'via' property.", "share-this-image" ),
                 "id"    => "twitter_via",
                 "value" => '',
                 "type"  => "text"
-            );
-
-            $options['general'][] = array(
-                "name"  => __( "Use alt Twitter icon ( X )", "share-this-image" ),
-                "desc"  => __( "Use the X icon instead of Twitter.", "share-this-image" ),
-                "id"    => "twitter_x",
-                "value" => 'false',
-                "type"  => "toggler",
-                'choices' => array(
-                    'true' => __( 'On', 'share-this-image' ),
-                    'false' => __( 'Off', 'share-this-image' )
-                )
             );
 
             $options['general'][] = array(

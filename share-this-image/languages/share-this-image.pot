@@ -79,10 +79,10 @@ msgstr ""
 msgid "here."
 msgstr ""
 
-msgid "Twitter via"
+msgid "X via"
 msgstr ""
 
-msgid "Set twitters 'via' property."
+msgid "Set X 'via' property."
 msgstr ""
 
 msgid "Sharing buttons"
@@ -101,12 +101,6 @@ msgid "On"
 msgstr ""
 
 msgid "Off"
-msgstr ""
-
-msgid "Use alt Twitter icon ( X )"
-msgstr ""
-
-msgid "Use the X icon instead of Twitter."
 msgstr ""
 
 msgid "Enable on mobile?"

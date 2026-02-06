@@ -3,8 +3,8 @@ Contributors: Mihail Barinov
 Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
-Tested up to: 6.8
-Stable tag: 2.08
+Tested up to: 6.9
+Stable tag: 2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ Share This Image is a simple and flexible image sharing plugin for WordPress. It
 
 = Main Features =
 
-* Supports all most popular social networks/messengers: **facebook**, **twitter**, **linkedin**, **pinterest**, **tumblr**, **WhatsApp**, **Telegram**, **Messenger**, **reddit**, **vkontakte**, **odnoclassniki**.
+* Supports all most popular social networks/messengers: **facebook**, **x**, **linkedin**, **pinterest**, **tumblr**, **WhatsApp**, **Telegram**, **Messenger**, **reddit**, **vkontakte**, **odnoclassniki**.
 * **Exact sharing** - user will share exactly the same image that he wants.
 * **Select what images to share**. Share all images of your site or just from several pages. Or just single images that you want. All this is possible!
 * **Customize content** - fully customizable url, image, title and content that you want to share.
@@ -237,6 +237,20 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 == Changelog ==
 
 [View full changelog](https://share-this-image.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=sti-repo)
+
+= 2.12 ( 05.02.2026 ) =
+* Update - Plugin header details. Add homepage link
+* Fix - Add additional server side requests checks
+
+= 2.11 ( 24.01.2026 ) =
+* Fix - Add additional server side requests checks
+
+= 2.10 ( 12.01.2026 ) =
+* Fix - Add additional check for sti_shortLinks ajax requests
+
+= 2.09 ( 06.01.2026 ) =
+* Update - Replace twitter icon and styles
+* Update - Freemius sdk
 
 = 2.08 ( 27.01.2025 ) =
 * Update - Freemius sdk
@@ -495,19 +509,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Add - Support for Ajax Load More plugin
 * Add - Twitter image sizes tags
 * Fix - Bug with several sharing buttons instances
-
-= 1.41 =
-* Update - Find image full size URL if needed
-* Update - Plugin settings page
-* Dev - Add sti_share_container js filter
-
-= 1.40 =
-* Add - Support for Magnific Popup lightbox plugin
-* Update - Add support for sharing buttons instances
-* Dev - Add sti_sharing_url js filter
-* Dev - Add sti_network js filter
-
-= 1.39 =
-* Add - Support for WP Modula plugin
-* Update - Settings page view
-* Dev - Add stiInit js event

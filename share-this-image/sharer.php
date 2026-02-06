@@ -10,6 +10,87 @@
 
         <?php
 
+        function sti_validate_image_url($image_url) {
+            if (!is_string($image_url)) {
+                return false;
+            }
+
+            $image_url = trim($image_url);
+            if ($image_url === '') {
+                return false;
+            }
+
+            $parts = parse_url($image_url);
+            if ($parts === false || empty($parts['host'])) {
+                return false;
+            }
+
+            $scheme = isset($parts['scheme']) ? strtolower($parts['scheme']) : 'http';
+            if ($scheme !== 'http' && $scheme !== 'https') {
+                return false;
+            }
+
+            $host = $parts['host'];
+            $host_lc = strtolower($host);
+
+            $blocked_hosts = array('127.0.0.1', 'localhost', '::1');
+            if (in_array($host_lc, $blocked_hosts, true)) {
+                return false;
+            }
+
+            if (filter_var($host, FILTER_VALIDATE_IP)) {
+                $ip = $host;
+            } else {
+                $ip = gethostbyname($host);
+                // gethostbyname returns the input host if it cannot resolve
+                if ($ip === $host) {
+                    return false;
+                }
+                if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+                    return false;
+                }
+            }
+
+            $is_public = (bool) filter_var(
+                $ip,
+                FILTER_VALIDATE_IP,
+                FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
+            );
+
+            if (!$is_public) {
+                return false;
+            }
+
+            // Build a "safe" normalized URL.
+            $safe = $scheme . '://' . $host;
+
+            if (!empty($parts['port'])) {
+                $port = (int) $parts['port'];
+                if ($port < 1 || $port > 65535) {
+                    return false;
+                }
+                $safe .= ':' . $port;
+            }
+
+            $path = $parts['path'] ?? '';
+            if ($path !== '') {
+                // Ensure it starts with "/" if present
+                if ($path[0] !== '/') {
+                    $path = '/' . $path;
+                }
+                // Encode path safely but keep "/" separators.
+                $safe .= implode('/', array_map('rawurlencode', explode('/', $path)));
+            }
+
+            if (!empty($parts['query'])) {
+                // Query can be left as-is; strip control chars for safety.
+                $query = preg_replace('/[\x00-\x1F\x7F]/u', '', $parts['query']);
+                $safe .= '?' . $query;
+            }
+
+            return $safe;
+        }
+
         $http_ext = isset( $_GET['ssl'] ) ? 'https://' : 'http://';
         
         $url = isset( $_GET['url'] ) ? htmlspecialchars( $_GET['url'] ) : '';
@@ -23,42 +104,49 @@
 
         if ( isset( $_GET['img'] ) ) {
 
-            $page_link = $http_ext . $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-            $title = isset( $_GET['title'] ) ? htmlspecialchars( urldecode( $_GET['title'] ) ) : '';
-            $desc = isset( $_GET['desc'] ) ? htmlspecialchars( urldecode( $_GET['desc'] ) ) : '';
-            $image = $http_ext . htmlspecialchars( $_GET['img'] );
-            $network = isset( $_GET['network'] ) ? htmlspecialchars( $_GET['network'] ) : '';
-            $image_sizes = @getimagesize( $image );
+            $image_url = sti_validate_image_url( $http_ext . htmlspecialchars( $_GET['img'] ) );
 
-            //if ( $network !== 'facebook' ) {
+            if ( $image_url ) {
+
+                $page_link = $http_ext . $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+                $title = isset( $_GET['title'] ) ? htmlspecialchars( urldecode( $_GET['title'] ) ) : '';
+                $desc = isset( $_GET['desc'] ) ? htmlspecialchars( urldecode( $_GET['desc'] ) ) : '';
+                $network = isset( $_GET['network'] ) ? htmlspecialchars( $_GET['network'] ) : '';
+
+                // check $image befor calling
+                $image_sizes = @getimagesize( $image_url );
+
+                //if ( $network !== 'facebook' ) {
                 echo '<link rel="canonical" href="' . $page_link . '" />';
                 echo '<meta property="og:url" content="' . $page_link . '" />';
                 echo '<meta property="twitter:url" content="' . $page_link . '" />';
-            //}
+                //}
 
-            echo '<meta property="og:image" content="'.$image.'" />';
-            echo '<meta property="twitter:image" content="'.$image.'" />';
-            echo '<meta property="twitter:image:src" content="'.$image.'" />';
+                echo '<meta property="og:image" content="' . $image_url . '" />';
+                echo '<meta property="twitter:image" content="' . $image_url . '" />';
+                echo '<meta property="twitter:image:src" content="' . $image_url . '" />';
 
-            if ( $image_sizes ) {
-                list( $width, $height ) = $image_sizes;
-                echo '<meta property="og:image:width" content="'.$width.'" />';
-                echo '<meta property="og:image:height" content="'.$height.'" />';
-                echo '<meta property="twitter:image:width" content="'.$width.'" />';
-                echo '<meta property="twitter:image:height" content="'.$height.'" />';
-            }
+                if ( $image_sizes ) {
+                    list( $width, $height ) = $image_sizes;
+                    echo '<meta property="og:image:width" content="' . intval( $width ) . '" />';
+                    echo '<meta property="og:image:height" content="' . intval( $height ) . '" />';
+                    echo '<meta property="twitter:image:width" content="' . intval( $width ) . '" />';
+                    echo '<meta property="twitter:image:height" content="' . intval( $height ) . '" />';
+                }
 
-            if ( $title ) {							
-                echo '<title>'.$title.'</title>';
-                echo '<meta property="og:title" content="'.$title.'" />';
-                echo '<meta property="twitter:title" content="'.$title.'" />';
-                echo '<meta property="og:site_name" content="'.$title.'" />';
-            }
+                if ( $title ) {
+                    echo '<title>'.$title.'</title>';
+                    echo '<meta property="og:title" content="'.$title.'" />';
+                    echo '<meta property="twitter:title" content="'.$title.'" />';
+                    echo '<meta property="og:site_name" content="'.$title.'" />';
+                }
 
-            if ( $desc ) {							
-                echo '<meta name="description" content="'.$desc.'">';
-                echo '<meta property="og:description" content="'.$desc.'" />';
-                echo '<meta property="twitter:description" content="'.$desc.'" />';
+                if ( $desc ) {
+                    echo '<meta name="description" content="'.$desc.'">';
+                    echo '<meta property="og:description" content="'.$desc.'" />';
+                    echo '<meta property="twitter:description" content="'.$desc.'" />';
+                }
+
             }
 
         }

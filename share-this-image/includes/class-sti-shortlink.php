@@ -77,6 +77,10 @@ if ( ! class_exists( 'STI_Shortlink' ) ) :
                 define( 'DOING_AJAX', true );
             }
 
+            if ( empty($_POST['nonce']) || ! wp_verify_nonce( $_POST['nonce'], 'sti_shortlinks' ) ) {
+                wp_send_json_error( array( 'message' => 'Invalid nonce' ), 403 );
+            }
+
             $hash = sanitize_key( $_POST['hash'] );
             $link = $_POST['link'];
 
