@@ -84,6 +84,14 @@ if ( ! class_exists( 'STI_Shortlink' ) ) :
             $hash = sanitize_key( $_POST['hash'] );
             $link = $_POST['link'];
 
+            // validate links
+            $home_host = wp_parse_url( home_url(), PHP_URL_HOST );
+            $link_host = wp_parse_url( $link, PHP_URL_HOST );
+
+            if ( ! $link_host || strtolower( $link_host ) !== strtolower( $home_host ) ) {
+                wp_send_json_error( array( 'message' => 'Invalid link' ), 400 );
+            }
+
             $this->insert_into_links_table( $hash, $link );
 
             wp_send_json_success( '1' );
@@ -97,7 +105,9 @@ if ( ! class_exists( 'STI_Shortlink' ) ) :
 
             global $wpdb;
 
-            return ( $wpdb->get_var( "SHOW TABLES LIKE '{$this->links_table_name}'" ) != $this->links_table_name );
+            $result = $wpdb->get_var( "SHOW TABLES LIKE '{$this->links_table_name}'" );
+
+            return empty( $result );
 
         }
 

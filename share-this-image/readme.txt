@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
 Tested up to: 6.9
-Stable tag: 2.12
+Stable tag: 2.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -237,6 +237,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 == Changelog ==
 
 [View full changelog](https://share-this-image.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=sti-repo)
+
+= 2.13 ( 11.03.2026 ) =
+* Fix - Add validation for short links
+* Fix - Update table exists check for short links table
 
 = 2.12 ( 05.02.2026 ) =
 * Update - Plugin header details. Add homepage link
@@ -504,8 +508,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 = 1.43 =
 * Add - Facebook app id option
 * Fix - Mobile buttons instances display
-
-= 1.42 =
-* Add - Support for Ajax Load More plugin
-* Add - Twitter image sizes tags
-* Fix - Bug with several sharing buttons instances
