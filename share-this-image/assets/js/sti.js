@@ -440,13 +440,13 @@ StiHooks.filters = StiHooks.filters || {};
 				switch( network ) {
 				
 					case "facebook" :
-                        url += 'http://www.facebook.com/sharer.php?u=';
+                        url += 'https://www.facebook.com/sharer/sharer.php?u=';
                         url += encodeURIComponent(data.page);
 					break;
 
 					case "messenger" :
 						if ( !methods.isMobile() ) {
-							url += 'http://www.facebook.com/dialog/send?';
+							url += 'https://www.facebook.com/dialog/send?';
 							url += 'link=' + encodeURIComponent(data.page);
 							url += '&redirect_uri=' + encodeURIComponent(data.local+data.schar+'close=1');
 						} else {
@@ -459,12 +459,12 @@ StiHooks.filters = StiHooks.filters || {};
 					break;
 
 					case "linkedin" :
-						url += 'http://www.linkedin.com/shareArticle?mini=true';
-						url += '&url=' + encodeURIComponent(data.page);
+						url += 'https://www.linkedin.com/sharing/share-offsite/?';
+						url += 'url=' + encodeURIComponent(data.page);
 					break;		
 					
 					case "vkontakte" :
-						url += 'http://vk.com/share.php?';
+						url += 'https://vk.com/share.php?';
 						url += 'url=' + encodeURIComponent(data.link);
 						url += '&title=' + encodeURIComponent(data.title);
 						url += '&description=' + encodeURIComponent(data.summary);
@@ -505,12 +505,12 @@ StiHooks.filters = StiHooks.filters || {};
 					break;
 
 					case "pinterest" :
-						url += 'http://pinterest.com/pin/create/button/?';
+						url += 'https://pinterest.com/pin/create/button/?';
 						url += 'url=' + encodeURIComponent(data.page);
 					break;
 
 					case "tumblr" :
-						url += 'http://tumblr.com/widgets/share/tool?';
+						url += 'https://www.tumblr.com/widgets/share/tool?';
 						url += 'shareSource=legacy';
 						url += '&posttype=photo';
 						url += '&canonicalUrl=' + encodeURIComponent(data.page);
@@ -521,7 +521,7 @@ StiHooks.filters = StiHooks.filters || {};
 					break;
 
 					case "reddit" :
-						url += 'http://reddit.com/submit?';
+						url += 'https://www.reddit.com/submit?';
 						url += 'url=' + encodeURIComponent(data.link);
 						url += '&title=' + encodeURIComponent(data.title);
 						url += '&text=' + encodeURIComponent(data.summary);
@@ -545,6 +545,10 @@ StiHooks.filters = StiHooks.filters || {};
 			},
 
 			openPopup: function(url, data) {
+				if ( methods.isMobile() ) {
+					window.open( url, '_blank' );
+					return;
+				}
 				var win = window.open( url, 'Share This Image', data.w_size + ',status=0,toolbar=0,menubar=0,scrollbars=1' );
 				var timer = setInterval( function() {
 					if( win.closed ) {
