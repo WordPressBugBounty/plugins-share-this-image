@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
 Tested up to: 6.9
-Stable tag: 2.14
+Stable tag: 2.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -237,6 +237,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 == Changelog ==
 
 [View full changelog](https://share-this-image.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=sti-repo)
+
+= 2.15 ( 27.04.2026 ) =
+* Fix - Bug with sharing to Facebook via mobile devices
 
 = 2.14 ( 21.04.2026 ) =
 * Update - Change sharing URLs for social buttons
@@ -508,7 +511,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 = 1.44 =
 * Add - Support for Theia Post Slider plugin
 * Add - Support for Divi image gallery
-
-= 1.43 =
-* Add - Facebook app id option
-* Fix - Mobile buttons instances display

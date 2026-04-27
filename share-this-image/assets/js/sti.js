@@ -440,6 +440,21 @@ StiHooks.filters = StiHooks.filters || {};
 				switch( network ) {
 				
 					case "facebook" :
+						if ( methods.isMobile() ) {
+							var fbAppUrl = 'fb://share?link=' + encodeURIComponent(data.page);
+							var webUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(data.page);
+							var appOpened = false;
+							var fallbackTimer = setTimeout(function() {
+								if ( !appOpened ) { window.location.href = webUrl; }
+							}, 1500);
+							window.addEventListener('blur', function onBlur() {
+								appOpened = true;
+								clearTimeout(fallbackTimer);
+								window.removeEventListener('blur', onBlur);
+							});
+							window.location.href = fbAppUrl;
+							return;
+						}
                         url += 'https://www.facebook.com/sharer/sharer.php?u=';
                         url += encodeURIComponent(data.page);
 					break;
