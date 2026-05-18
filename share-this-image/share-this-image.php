@@ -3,7 +3,7 @@
 /*
 Plugin Name: Share This Image
 Description: Allows you to share in social networks any of your images
-Version: 2.15
+Version: 2.16
 Author: ILLID
 Plugin URI: https://share-this-image.com/
 Author URI: https://share-this-image.com/
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'STI_VER', '2.15' );
+define( 'STI_VER', '2.16' );
 
 
 define( 'STI_DIR', dirname( __FILE__ ) );

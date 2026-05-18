@@ -50,6 +50,8 @@ if ( ! class_exists( 'STI_Admin' ) ) :
 
             add_filter( 'submenu_file', array( $this, 'submenu_file' ), 10, 2 );
 
+            add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
+
         }
 
         /*
@@ -207,6 +209,22 @@ if ( ! class_exists( 'STI_Admin' ) ) :
                 $submenu_file = admin_url( 'admin.php?page=sti-options&tab=premium' );
             }
             return $submenu_file;
+        }
+
+        /*
+         * Add custom body class for plugin admin pages
+         */
+        public function admin_body_class( $classes ) {
+            $screen = get_current_screen();
+            if ( ( isset( $_GET['page'] ) && $_GET['page'] == 'sti-options' ) ) {
+                $raw_version    = get_bloginfo( 'version' );
+                $version_parts  = explode( '-', $raw_version );
+                $version        = count( $version_parts ) > 1 ? $version_parts[0] : $raw_version;
+                if ( version_compare( $version, '7.0', '>=' ) ) {
+                    $classes .= ' sti-wp-min-70';
+                }
+            }
+            return $classes;
         }
 
     }

@@ -177,6 +177,10 @@
     margin-left: 5px;
 }
 
+.sti-wp-min-70 #sti-admin-header .inner .btns a {
+    min-height: auto;
+}
+
 #sti-admin-header .inner .btns a:before {
     speak: none;
     font-weight: 400;
@@ -384,6 +388,8 @@
 #sti_form .sti-togglers input[type=checkbox]:checked + .sti-toggle {
     border-color: #4398c6;
     background-color: #4398c6;
+    border-color: var(--wp-admin-theme-color);
+    background-color: var(--wp-admin-theme-color);
     transition: all .2s;
 }
 
@@ -1294,7 +1300,7 @@
 .sti-rules .sti-rules-table {
     border-spacing: 0;
     border-radius: 0;
-    table-layout: fixed;
+    table-layout: auto;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -1343,6 +1349,11 @@
     position: relative;
 }
 
+.sti-wp-min-70 .sti-rules.sti-content-rules .sti-rules-table td {
+    padding-bottom: 12px;
+    padding-top: 6px;
+}
+
 .sti-rules .sti-rules-table .sti-pending td {
     visibility: hidden;
 }
@@ -1380,6 +1391,11 @@
 
 .sti-rules .sti-rules-table td.add a {
     width: 44px;
+}
+
+.sti-wp-min-70 .sti-rules .sti-rules-table td.add a {
+    text-align: center;
+    padding: 0;
 }
 
 .sti-rules .sti-rules-table td.remove {
@@ -1443,6 +1459,9 @@
     height: 26px;
     min-height: 26px;
 }
+.sti-wp-min-70.wp-admin .select2-container--default .select2-search--dropdown .select2-search__field {
+    min-height: 36px;
+}
 .wp-admin .select2-container--default .select2-search--dropdown .select2-search__field:focus {
     outline: none;
     box-shadow: none;
@@ -1470,11 +1489,17 @@
     background: #fff url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E) no-repeat right 5px top 55%;
     background-size: 16px 16px;
 }
+.sti-wp-min-70 .sti-rules .select2-container--default .select2-selection--single {
+    min-height: 40px;
+}
 .sti-rules .select2-container--default .select2-selection--single:focus {
     outline-color: #007cba;
 }
 .sti-rules .select2-container--default .select2-selection--single .select2-selection__arrow {
     display: none;
+}
+.sti-wp-min-70 .sti-rules .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 38px;
 }
 
 /* Welcome message */
