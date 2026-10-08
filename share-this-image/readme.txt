@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: facebook, image, sharing, social buttons, twitter
 Requires at least: 4.0
 Tested up to: 7.1
-Stable tag: 2.16
+Stable tag: 2.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -237,6 +237,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 == Changelog ==
 
 [View full changelog](https://share-this-image.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=sti-repo)
+
+= 2.17 ( 08.10.2026 ) =
+* Update - Freemius sdk
 
 = 2.16 ( 18.05.2026 ) =
 * Update - Change settings page styles related to WP7 styles changes
